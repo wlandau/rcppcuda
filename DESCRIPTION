@@ -1,0 +1,13 @@
+Package: rcppcuda
+Type: Package
+Title: A skeleton R package that uses Rcpp, CUDA, and s4 classes. This is a learning exercise.
+Version: 0.0
+Date: 2015-06-01
+Author: Will Landau
+Maintainer: Will Landau <your@email.com>
+Description: A skeleton R package that uses Rcpp, CUDA, and s4 classes. This is a learning exercise.
+License: GPL (>= 2)
+Imports: Rcpp (>= 0.11.6)
+LinkingTo: Rcpp
+NeedsCompilation: yes
+Packaged: 2015-06-03 17:39:40 UTC; landau

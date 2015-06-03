@@ -1,0 +1,3 @@
+useDynLib(rcpp-cuda)
+export(hello)
+import(Rcpp)
