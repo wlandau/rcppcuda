@@ -1,12 +1,10 @@
 #include <Rcpp.h>
 using namespace Rcpp;
 
-
 __global__ void mykernel(int a){
   int id = threadIdx.x;
   int b = a;
 }
-
 
 RcppExport SEXP rcppcuda(SEXP r) {
   S4 c(r);
