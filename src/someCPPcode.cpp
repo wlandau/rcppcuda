@@ -1,9 +1,11 @@
 #include <Rcpp.h>
 using namespace Rcpp;
 
- void someCUDAcode();
+extern "C"
+void someCUDAcode();
 
-RcppExport SEXP someCPPcode(SEXP r) {
+//[[Rcpp::export]]
+SEXP someCPPcode(SEXP r) {
   S4 c(r);
   double *x = REAL(c.slot("x"));
   int *y = INTEGER(c.slot("y"));

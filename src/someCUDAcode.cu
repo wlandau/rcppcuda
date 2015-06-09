@@ -5,6 +5,7 @@ __global__ void mykernel(int a){
   id++;
 }
 
+extern "C"
 void someCUDAcode() {
   mykernel<<<1, 1>>>(1);
 }
