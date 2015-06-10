@@ -12,7 +12,7 @@ __global__ void mykernel(int a){
 }
 
 extern "C" void someCUDAcode() {
-  int a;
+  int *a;
   CUDA_CALL(cudaMalloc((void**) &a, sizeof(int)));
   mykernel<<<1, 1>>>(1);
 //  CUDA_CALL(cudaFree(&a));
