@@ -16,4 +16,5 @@ extern "C" void someCUDAcode() {
   CUDA_CALL(cudaMalloc((void**) &a, sizeof(int)));
   mykernel<<<1, 1>>>(1);
 //  CUDA_CALL(cudaFree(&a));
+  cudaDeviceReset();
 }
