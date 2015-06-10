@@ -17,8 +17,8 @@ NVCC_FLAGS = -Xcompiler "-fPIC" -gencode arch=compute_20,code=sm_20 -gencode arc
 cu_sources = someCUDAcode.cu
 cu_sharedlibs = someCUDAcode.o
 
-cpp_sources = someCPPcode.cpp
-cpp_sharedlibs = someCPPcode.o
+cpp_sources = someCPPcode.cpp RcppExports.cpp
+cpp_sharedlibs = someCPPcode.o RcppExports.o
 
 OBJECTS = $(cu_sharedlibs) $(cpp_sharedlibs)
 
