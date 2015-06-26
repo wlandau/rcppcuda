@@ -10,7 +10,7 @@
 #' @aliases someCPPcode
 #'
 #' @param r a \code{MyClass} object.
-someCPPcode <- function(r) {
-    .Call('rcppcuda_someCPPcode', PACKAGE = 'rcppcuda', r)
+someCPPcode <- function(r, dev) {
+    .Call('rcppcuda_someCPPcode', PACKAGE = 'rcppcuda', r, as.integer(dev))
 }
 

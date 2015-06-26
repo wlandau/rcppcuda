@@ -19,16 +19,30 @@ setClass("MyClass", slots = list(x = "numeric", y = "integer"))
 #' @aliases hello
 hello = function() {
   r = new("MyClass", x = as.double(1:10), y = as.integer(1:10))
-  print(r)
+
+  print("Here is an object.")
+  print(str(r))
  # .Call('someCPPcode', r)
-  someCPPcode(r) # Comment out this line to remove the CUDA initialization error.
+  someCPPcode(r, 0) # Comment out this line to remove the CUDA initialization error.
   print("Object changed.")
-  print(r)
+  print(str(r))
+
+   o1 = new("MyClass", x = as.double(1:10), y = as.integer(1:10))
+   o2 = new("MyClass", x = as.double(1:10), y = as.integer(1:10))
+
+  print("More objects.")
+  print(str(o1))
+  print(str(o2))
+
+  someCPPcode(r, 1) 
 
   mclapply(X = 0:1, mc.cores = 2, FUN = function(i){
-    rsetDevice(as.integer(i))
-    someCPPcode(new("MyClass", x = as.double(1:10), y = as.integer(1:10)))
+    someCPPcode(get(paste("o", i, sep="")), i)
   })
+
+  print("Those objects changed too.")
+  print(str(o1))
+  print(str(o2))
 }
 
 #' @title Function \code{rsetDevice}

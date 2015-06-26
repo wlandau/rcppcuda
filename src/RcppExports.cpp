@@ -6,13 +6,13 @@
 using namespace Rcpp;
 
 // someCPPcode
-SEXP someCPPcode(SEXP r);
-RcppExport SEXP rcppcuda_someCPPcode(SEXP rSEXP) {
+SEXP someCPPcode(SEXP r, SEXP device);
+RcppExport SEXP rcppcuda_someCPPcode(SEXP rSEXP, SEXP device) {
 BEGIN_RCPP
     Rcpp::RObject __result;
     Rcpp::RNGScope __rngScope;
     Rcpp::traits::input_parameter< SEXP >::type r(rSEXP);
-    __result = Rcpp::wrap(someCPPcode(r));
+    __result = Rcpp::wrap(someCPPcode(r, device));
     return __result;
 END_RCPP
 }
