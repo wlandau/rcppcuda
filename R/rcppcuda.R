@@ -24,4 +24,18 @@ hello = function() {
   someCPPcode(r)
   print("Object changed.")
   print(r)
+
+  mclapply(0:1, mc.cores = 2, FUN = function(i){
+    rsetDevice(i)
+    someCPPcode(new("MyClass", x = as.double(1:10), y = as.integer(1:10)))
+  })
 }
+
+#' @title Function \code{rsetDevice}
+#' @description Choose a CUDA-capable GPU to use for the MCMC.
+#' @param device Integer index of a CUDA-capable GPU. Must be >= 0 and < number of GPUs.
+#' @export
+rsetDevice = function(device){
+  .C("setDevice", PACKAGE = "rcppcuda", device)
+}
+

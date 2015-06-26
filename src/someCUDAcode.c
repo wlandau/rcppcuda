@@ -18,3 +18,7 @@ extern "C" void someCUDAcode() {
 //  CUDA_CALL(cudaFree(&a));
   cudaDeviceReset();
 }
+
+extern "C" void setDevice(int dev) {
+	CUDA_CALL(cudaSetDevice(dev));
+}
