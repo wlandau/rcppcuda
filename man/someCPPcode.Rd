@@ -4,7 +4,7 @@
 \alias{someCPPcode}
 \title{Function \code{someCPPcode}}
 \usage{
-someCPPcode(r)
+someCPPcode(r, dev)
 }
 \arguments{
 \item{r}{a \code{MyClass} object.}

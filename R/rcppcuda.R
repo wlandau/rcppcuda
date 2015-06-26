@@ -27,29 +27,20 @@ hello = function() {
   print("Object changed.")
   print(str(r))
 
-   o1 = new("MyClass", x = as.double(1:10), y = as.integer(1:10))
-   o2 = new("MyClass", x = as.double(1:10), y = as.integer(1:10))
+  o = list(
+   new("MyClass", x = as.double(1:10), y = as.integer(1:10)),
+   new("MyClass", x = as.double(1:10), y = as.integer(1:10))
+  )
 
   print("More objects.")
-  print(str(o1))
-  print(str(o2))
+  print(str(o))
 
-  someCPPcode(r, 1) 
-
-  mclapply(X = 0:1, mc.cores = 2, FUN = function(i){
-    someCPPcode(get(paste("o", i, sep="")), i)
+  out = mclapply(X = 1:2, mc.cores = 2, FUN = function(i){
+    print(paste("CPU core =", i))
+    someCPPcode(o[[i]], as.integer(i-1))
   })
 
   print("Those objects changed too.")
-  print(str(o1))
-  print(str(o2))
-}
-
-#' @title Function \code{rsetDevice}
-#' @description Choose a CUDA-capable GPU to use for the MCMC.
-#' @param device Integer index of a CUDA-capable GPU. Must be >= 0 and < number of GPUs.
-#' @export
-rsetDevice = function(device){
-  .C("setDevice", PACKAGE = "rcppcuda", device)
+  print(str(out))
 }
 
