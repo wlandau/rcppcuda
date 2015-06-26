@@ -12,7 +12,6 @@ BEGIN_RCPP
     Rcpp::RObject __result;
     Rcpp::RNGScope __rngScope;
     Rcpp::traits::input_parameter< SEXP >::type r(rSEXP);
-    Rcpp::traits::input_parameter< SEXP >::type device(rSEXP);
     __result = Rcpp::wrap(someCPPcode(r, device));
     return __result;
 END_RCPP
