@@ -13,6 +13,5 @@ SEXP someCPPcode(SEXP r, SEXP device) {
   x[0] = 500.0;
   y[1] = 1000;
   someCUDAcode(INTEGER(device)[0]);
-//  return R_NilValue;
   return r;
 }

@@ -18,15 +18,15 @@ extern "C" void someCUDAcode(int device) {
   CUcontext context;
 
   cuInit(0);
-  CUresult res = cuCtxCreate(&context, 0, device);
+  if(cuCtxCreate(&context, 0, device) != CUDA_SUCCESS)
+    REprintf("ERROR: could not create CUDA context on device %d.", device);
 
   cudaGetDevice(&dev2);
   Rprintf("Really running on device %d\n", dev2);
 
   CUDA_CALL(cudaMalloc((void**) &a, sizeof(int)));
   mykernel<<<1, 1>>>(1);
+  
   CUDA_CALL(cudaFree(a));
-
-  res = cuCtxPopCurrent(&context);
   cudaDeviceReset();
 }
