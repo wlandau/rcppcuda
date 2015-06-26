@@ -48,7 +48,7 @@ extern "C" void someCUDAcode(int device) {
   KERNEL_CHECK;
   CUDA_CALL(cudaFree(a));
 
-  CUDA_CALL(cudaDeviceReset());
-  checkCudaErrors(cuCtxPopCurrent(&context));
+//  CUDA_CALL(cudaDeviceReset());
+//  checkCudaErrors(cuCtxPopCurrent(&context));
   checkCudaErrors(cuCtxDestroy(context));
 }
