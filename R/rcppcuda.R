@@ -21,12 +21,12 @@ hello = function() {
   r = new("MyClass", x = as.double(1:10), y = as.integer(1:10))
   print(r)
  # .Call('someCPPcode', r)
-  someCPPcode(r)
+  someCPPcode(r) # Comment out this line to remove the CUDA initialization error.
   print("Object changed.")
   print(r)
 
-  mclapply(0:1, mc.cores = 2, FUN = function(i){
-    rsetDevice(i)
+  mclapply(X = 0:1, mc.cores = 2, FUN = function(i){
+    rsetDevice(as.integer(i))
     someCPPcode(new("MyClass", x = as.double(1:10), y = as.integer(1:10)))
   })
 }

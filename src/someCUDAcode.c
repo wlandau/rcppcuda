@@ -15,10 +15,10 @@ extern "C" void someCUDAcode() {
   int *a;
   CUDA_CALL(cudaMalloc((void**) &a, sizeof(int)));
   mykernel<<<1, 1>>>(1);
-//  CUDA_CALL(cudaFree(&a));
+  CUDA_CALL(cudaFree(a));
   cudaDeviceReset();
 }
 
-extern "C" void setDevice(int dev) {
-	CUDA_CALL(cudaSetDevice(dev));
+extern "C" void setDevice(int *dev) {
+	CUDA_CALL(cudaSetDevice(*dev));
 }

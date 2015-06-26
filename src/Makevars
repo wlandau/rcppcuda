@@ -1,5 +1,4 @@
 CUDA_HOME = /usr/local/cuda
-R_HOME = /apps/R-3.2.0
 CXX = /usr/bin/g++
 
 #########################################
