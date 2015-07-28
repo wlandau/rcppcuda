@@ -1,5 +1,5 @@
-#' @useDynLib rcppcuda
+#' @useDynLib RcppPackage
 #' @exportPattern "^[[:alpha:]]+"
 #' @import methods
-#' @importFrom Rcpp evalCpp
+#' @import Rcpp
 NULL

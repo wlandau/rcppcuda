@@ -1,2 +1,3 @@
-# rcpp-cuda
-A skeleton R package that uses Rcpp, CUDA, and s4 classes. This is a learning exercise.
+# RcppPackage
+
+This R package is a learning exercise for developing packages with Rcpp. See the vignette for details.
